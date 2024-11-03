@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Data Karyawan</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="karyawan.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script defer src="karyawan.js"></script>
+    <style>
+        .action-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .action-icons i {
+            cursor: pointer;
+            color: #e74c3c;
+        }
+
+        .action-icons i:hover {
+            color: #c0392b;
+        }
+
+        .modal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content h2 {
+            margin-bottom: 15px;
+        }
+
+        .modal-content label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+        }
+
+        .modal-content button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2980b9;
+            color: #ecf0f1;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .modal-content button:hover {
+            background-color: #3498db;
+        }
+
+
+        .hidden {
+            display: none;
+        }
+
+        .close {
+            float: right;
+            font-size: 20px;
+            cursor: pointer;
+            color: #2980b9;
+        }
+
+        .close:hover {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="table-container">
+        <h2>Data Karyawan</h2>
+        <button class="add-button" id="addKaryawanBtn">
+            + Tambah Karyawan
+        </button>
+        <table id="karyawanTable">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kode</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Alamat</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>K001</td>
+                    <td>Bumi ayu</td>
+                    <td>bumiayuu@example</td>
+                    <td>Jl. sukamaju, solo</td>
+                    <td class="action-icons">
+                        <i class="fas fa-trash-alt" onclick="deleteRow(this)"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>K002</td>
+                    <td>Putri jelita</td>
+                    <td>Putrijelita@example</td>
+                    <td>Jl. sukamundur, Surabaya</td>
+                    <td class="action-icons">
+                        <i class="fas fa-trash-alt" onclick="deleteRow(this)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <h2>Tambah Karyawan</h2>
+            <form id="karyawanForm">
+                <label for="kode">Kode:</label>
+                <input type="text" id="kode" required>
+
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+
+                <label for="alamat">Alamat:</label>
+                <input type="text" id="alamat" required>
+
+                <button type="submit">Simpan</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        function deleteRow(icon) {
+
+            const row = icon.closest('tr');
+
+            row.parentNode.removeChild(row);
+        }
+
+        document.getElementById("closeModalBtn").onclick = function () {
+            document.getElementById("modal").classList.add("hidden");
+        };
+
+        document.getElementById("addKaryawanBtn").onclick = function () {
+            document.getElementById("modal").classList.remove("hidden");
+        };
+
+        document.getElementById("karyawanForm").onsubmit = function (event) {
+            event.preventDefault();
+
+            const kode = document.getElementById("kode").value;
+            const nama = document.getElementById("nama").value;
+            const email = document.getElementById("email").value;
+            const alamat = document.getElementById("alamat").value;
+
+            const newRow = document.createElement("tr");
+            newRow.innerHTML = `
+                <td></td>
+                <td>${kode}</td>
+                <td>${nama}</td>
+                <td>${email}</td>
+                <td>${alamat}</td>
+                <td class="action-icons">
+                    <i class="fas fa-trash-alt" onclick="deleteRow(this)"></i>
+                </td>
+            `;
+
+            document.getElementById("karyawanTable").querySelector("tbody").appendChild(newRow);
+
+            document.getElementById("karyawanForm").reset();
+            document.getElementById("modal").classList.add("hidden");
+        };
+    </script>
+</body>
+
+</html>

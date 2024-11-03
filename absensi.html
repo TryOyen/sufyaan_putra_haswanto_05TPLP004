@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Absensi Kehadiran</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="absen.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="table-container">
+        <h2>Absensi Kehadiran</h2>
+        <button class="add-button" id="addAttendanceBtn">+ Tambah Kehadiran</button>
+        <table id="attendanceTable">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Tanggal</th>
+                    <th>Status Kehadiran</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Bumi Ayu</td>
+                    <td>2024-11-02</td>
+                    <td>Hadir</td>
+                    <td class="action-icons">
+                        <i class="fas fa-trash-alt" onclick="deleteRow(this)"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Putri Jelita</td>
+                    <td>2024-11-02</td>
+                    <td>Tidak Hadir</td>
+                    <td class="action-icons">
+                        <i class="fas fa-trash-alt" onclick="deleteRow(this)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <h2>Tambah Kehadiran</h2>
+            <form id="attendanceForm">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" required>
+
+                <label for="tanggal">Tanggal:</label>
+                <input type="date" id="tanggal" required>
+
+                <label for="status">Status Kehadiran:</label>
+                <select id="status" required>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Tidak Hadir">Tidak Hadir</option>
+                </select>
+
+                <button type="submit">Simpan</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="absen.js"></script>
+</body>
+
+</html>

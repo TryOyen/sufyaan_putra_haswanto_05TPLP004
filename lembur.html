@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Data Lembur Karyawan</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="lembur.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script defer src="lembur.js"></script>
+</head>
+
+<body>
+
+    <div class="table-container">
+        <h2>Data Lembur Karyawan</h2>
+        <button class="add-button" id="addLemburBtn">
+            + Tambah Lembur
+        </button>
+        <table id="lemburTable">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Karyawan</th>
+                    <th>Tanggal Lembur</th>
+                    <th>Durasi (jam)</th>
+                    <th>Keterangan</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td>1</td>
+                <td>Putri Jelita</td>
+                <td>2024-11-04</td>
+                <td>1 (Jam)</td>
+                <td>Pengganti izin</td>
+                <td class="action-icons">
+                <i class="fas fa-trash-alt" onclick="deleteRow(this)"></i> 
+            </tbody>
+        </table>
+    </div>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <h2>Tambah Lembur</h2>
+            <form id="lemburForm">
+                <label for="nama">Nama Karyawan:</label>
+                <input type="text" id="nama" required>
+
+                <label for="tanggal">Tanggal Lembur:</label>
+                <input type="date" id="tanggal" required>
+
+                <label for="durasi">Durasi (jam):</label>
+                <input type="number" id="durasi" required min="1" max="12">
+
+                <label for="keterangan">Keterangan:</label>
+                <input type="text" id="keterangan">
+
+                <button type="submit">Simpan</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Data Izin Karyawan</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="izin.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script defer src="izin.js"></script>
+</head>
+
+<body>
+
+    <div class="table-container">
+        <h2>Data Izin Karyawan</h2>
+        <button class="add-button" id="addIzinBtn">
+            + Tambah Izin
+        </button>
+        <table id="izinTable">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Karyawan</th>
+                    <th>Tanggal Izin</th>
+                    <th>Alasan Izin</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td>1</td>
+                <td>Putri Jelita</td>
+                <td>2024-11-02</td>
+                <td>Demam</td>
+                <td class="action-icons">
+                <i class="fas fa-trash-alt" onclick="deleteRow(this)"></i>                    
+            </td>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <h2>Tambah Izin</h2>
+            <form id="izinForm">
+                <label for="nama">Nama Karyawan:</label>
+                <input type="text" id="nama" required>
+
+                <label for="tanggal">Tanggal Izin:</label>
+                <input type="date" id="tanggal" required>
+
+                <label for="alasan">Alasan Izin:</label>
+                <input type="text" id="alasan" required>
+
+                <button type="submit">Simpan</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="izin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #2c3e50;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #ecf0f1;
+    padding-top: 20px;
+}
+
+.sidebar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+.sidebar h2 {
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.sidebar p {
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.sidebar a {
+    display: block;
+    color: #ecf0f1;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sidebar a:hover {
+    background-color: #34495e;
+}
+
+.sidebar .active {
+    background-color: #2980b9;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+.header {
+    background-color: #298bb9;
+    color: #ecf0f1;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.header .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.header .user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.dashboard-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 5px;
+    width: 23%;
+    text-align: center;
+}
+
+.card i {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.card p {
+    margin: 5px 0 0;
+    font-size: 16px;
+}
+
+.table-container {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ecf0f1;
+}
+
+table,
+th,
+td {
+    border: 1px solid #bdc3c7;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #2980b9;
+    color: #ecf0f1;
+}
+
+.action-icons i {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.add-button {
+    background-color: #2980b9;
+    color: #ecf0f1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+    margin-bottom: 10px;
+}
